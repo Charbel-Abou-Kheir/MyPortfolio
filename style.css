@@ -1,0 +1,582 @@
+
+/* General */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+a{
+    text-decoration: none;
+}
+h1{
+    font-family: sans-serif;
+    font-size: 4rem;
+    font-weight: 300;
+}
+h1 span{
+    color: crimson;
+}
+html{
+    font-family: sans-serif;
+    scroll-behavior: smooth;
+}
+p{
+    font-size: 1.1rem;
+}
+/* End general */
+
+/* Header section */
+#header{
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: auto;
+}
+#header .header{
+    min-height: 8vh;
+    background: linear-gradient(to bottom, rgb(85, 85, 85), rgb(118, 118, 118), rgb(85, 85, 85));
+    transition: .3s ease-in-out background-color;
+}
+#header .brand img{
+    padding: 0 5px;
+}
+#header .brand span{
+    color: crimson;
+}
+.header .nav-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    max-width: 1300px;
+    padding: 0 7px;
+    padding-right: 0px;
+} 
+#header .nav-list ul{
+    background: linear-gradient(to bottom, rgb(22, 22, 22), rgb(118, 118, 118), rgb(22, 22, 22));
+    list-style: none;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    left: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    overflow-x: hidden;
+    transition: .5s ease-in-out left;
+}
+#header .nav-list ul.active{
+    left: 0;
+}
+#header .nav-list ul a{
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: .2rem;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    margin: 20px 0;
+    display: block;
+    font-family: sans-serif;
+    transition: .4s ease-in-out;
+    transition-property: transform color;
+}
+#header .nav-list ul a:hover{
+    transform: scale(1.05);
+    color: crimson;
+}
+#header .hamburger{
+    position: relative;
+    height: 60px;
+    width: 60px;
+    display: inline-block;
+    border: 3px solid white;
+    border-radius: 50%;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transform: scale(.8);
+    margin-right: 20px;
+}
+#header .hamburger::after{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border: 3px solid white;
+    animation: hamburger_pulse 1s ease infinite;
+}
+#header .hamburger .bar{
+    height: 2.5px;
+    width: 30px;
+    position: relative;
+    background-color: white;
+    z-index: -1;
+}
+#header .hamburger .bar::after,
+#header .hamburger .bar::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    background-color: white;
+    transition: .3s ease-in-out;
+    transition-property: top, bottom;
+}
+#header .hamburger .bar::after{
+    top: 8px;
+}
+#header .hamburger .bar::before{
+    bottom: 8px;
+}
+#header .hamburger.active .bar::before{
+    bottom: 0;
+}
+#header .hamburger.active .bar::after{
+    top: 0;
+}
+/* End header */
+
+/* Home section */
+#home{
+    background-image: url(./images/home.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    position: relative;
+    z-index: 1;
+}
+#home::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: -1;
+}
+#home h1{
+    display: block;
+    width: fit-content;
+    font-size: 3rem;
+    position: relative;
+    color: white;
+}
+#home .text{
+    margin-top: 8px;
+}
+#home h1:nth-child(3){
+    color: crimson;
+}
+#home .home{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px;
+    justify-content: flex-start;
+}
+/* End home section */
+
+/* About section */
+#about .about{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 30px;
+    overflow-x: hidden;
+}
+#about .col-right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin-bottom: 30px;
+}
+#about .col-right h2{
+    padding: 15px 0;
+}
+#about .col-left{
+    position: relative;
+    width: 65%;
+    top: 0px;
+    right: 0px;
+    transition: .5s ease-in-out;
+    transition-property: top right;
+}
+#about .col-left:hover{
+    right: 25px;
+    top: 25px;
+}
+#about .col-left::after{
+    content: '';
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 99.5%;
+    height: 99.1%;
+    border-radius: 9px;
+    background-color: crimson;
+    transition: .5s ease-in-out;
+    transition-property: top right;
+    z-index: -1;
+}
+#about .col-left:hover::after{
+    right: 0px;
+    top: 0px;
+}
+#about .about-img{
+    width: 100%;
+    height: auto;
+    border-radius: 9px;
+}
+#about .about{
+    overflow: visible;
+}
+/* End about section */
+
+/* Hiking section */
+#hiking .hiking{
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 30px;
+}
+#hiking .title{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.underline{
+    width: 100%;
+    height: 5.5px;
+    margin: 5px 0;
+    background-image: linear-gradient(to right, white, black, white);
+}
+#hiking .filter-btn{
+    margin: 15px 2px;
+    padding: 10px 20px;
+    font-size: 1.05rem;
+    letter-spacing: .05rem;
+    text-transform: capitalize;
+    border: 2px solid crimson;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    box-shadow: 0 0 9px 0 black;
+    background-color: black;
+    transition: .7s ease-in-out;
+    transition-property: background-color box-shadow color;
+}
+#hiking .filter-btn.active{
+    box-shadow: 0 0 2px 0 black;
+    background-color: white;
+    color: crimson;
+}
+#hiking .filter-btn:hover{
+    box-shadow: 0 0 2px 0 black;
+    background-color: white;
+    color: crimson;
+}
+#hiking .section-center{
+    width: 100%;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#hiking .single-item{
+    width: 75%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 3px solid black;
+    border-radius: 22px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+#hiking .single-item img{
+    width: 100%;
+    height: auto;
+}
+#hiking .single-item h2{
+    margin: 5px 5px;
+}
+/* End hiking section */
+
+/* Contact section */
+#contact .contact{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 25px 0;
+}
+#contact .contact-info{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+#contact .contact-item{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 230px;
+    margin: 15px 0;
+    border-radius: 25px;
+    box-shadow: 0 0 18px 0 black;
+    transition: .3s ease-in-out;
+    transition-property: box-shadow;
+    overflow: hidden;
+}
+#contact .contact-item:hover{
+    box-shadow: 0 0 5px 0 black;
+}
+#contact img{
+    width: 80px;
+    height: auto;
+    margin-bottom: 15px;
+    padding: 10px 10px;
+}
+#contact h1{
+    margin: 20px 0;
+}
+#contact h2{
+    font-size: 1.7rem;
+}
+/* End contact section */
+
+/* Footer section */
+#footer .container{
+    min-height: 350px;
+    background-image: linear-gradient(to bottom, rgb(85, 85, 85), rgb(118, 118, 118), rgb(85, 85, 85));
+}
+#footer .footer-items{
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#footer h1,
+#footer h2{
+    color: white;
+}
+#footer h2{
+    text-align: center;
+}
+/* End footer */
+
+/* Keyframes */
+@keyframes hamburger_pulse{
+    0%{
+        opacity: 1;
+        transform: scale(1);
+    }
+    100%{
+        opacity: 0;
+        transform: scale(1.4);
+    }
+}
+
+/* End keyframes */
+
+/* Media query for desktop*/
+@media only screen and (min-width: 1200px){
+    /* General */
+    h1{
+        font-size: 5rem;
+    }
+    /* End general */
+
+    /* Header */
+    #header .header{
+        min-height: 10vh;
+    }
+    #header .brand img{
+        transform: scale(1.1);
+    }
+    #header .hamburger{
+        display: none;
+    }
+    #header .nav-list ul{
+        position: initial;
+        display: block;
+        height: auto;
+        width: fit-content;
+        background: transparent;
+    }
+    #header .nav-list ul li{
+        display: inline-block;
+    }
+    #header .nav-list ul a{
+        font-size: 1.8rem;
+        overflow-y: hidden;
+        border-radius: 25px;
+        padding: 8px 25px;
+        color: white;
+        margin: 10px 2px;
+        border: 3px solid crimson;
+        background-color: black;
+        transition: .6s ease-in-out;
+        transition-property: background-color color;
+    }
+    #header .nav-list ul li:first-child{
+        margin-left: 5px;
+    }
+    #header .nav-list ul li:last-child{
+        margin-right: 20px;
+    }
+    #header .nav-list ul a:hover{
+        background-color: white;
+    }
+    #header .nav-list ul a.active{
+        background-color: white;
+        color: crimson;
+    }
+    /* End header */
+
+    /* Home */
+    #home .text{
+        margin-top: 85px;
+    }
+    #home h1{
+        font-size: 5rem;
+    }
+    /* End home */
+
+    /* About */
+    #about .about{
+        flex-direction: row;
+        padding: 30px 70px;
+    }
+    #about .col-right{
+        flex-basis: 65%;
+        padding: 0 40px;
+        align-items: flex-start;
+        margin-right: 50px;
+        margin-bottom: 150px;
+    }
+    #about .col-left{
+        flex-basis: 35%;
+        margin-left: 40px;
+    }
+    #about h2{
+        font-size: 2rem;
+    }
+    #about p{
+        font-size: 1.5rem;
+    }
+    /* End about */
+
+    /* Hiking section */
+    #hiking .container{
+        width: 80%;
+        margin: 0 auto;
+    }
+    #hiking .section-center{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    #hiking .btns{
+        margin: 15px 0;
+    }
+    #hiking .filter-btn{
+        font-size: 1.3rem;
+        border: 3px solid crimson;
+        box-shadow: 0 0 13px 0 black;
+        margin: 0 3px;
+    }
+    #hiking .single-item{
+        flex-basis: 45%;
+        margin: 10px 10px;
+        border: 4px solid black;
+    }
+    #hiking .single-item h2{
+        font-size: 1.6rem;
+        font-weight: 700;
+    }
+    /* End hiking section */
+
+    /* Contact section */
+    #contact .container{
+        min-height: 450px;
+    }
+    #contact .contact-info{
+        width: 80%;
+        flex-direction: row;
+    }
+    #contact .contact-item{
+        margin: 10px 10px;
+    }
+    #contact .contact-item h3{
+        font-size: 1.3rem;
+        letter-spacing: .01rem;
+    }
+    #contact img{
+        width: 90px;
+        height: auto;
+    }
+    /* End contact section */
+}
+/* End media query desktop */
+
+/* Media query for tablet */
+@media only screen and (min-width: 750px){
+    /* General */
+    h1{
+        font-size: 5rem;
+    }
+    /* End general */
+
+    /* Home section */
+
+    /* End home section */
+
+    /* About section */
+    #about .col-left{
+        width: 50%;
+    }
+    /* End about section */
+
+    /* Hiking section */
+    #hiking .single-item{
+        width: 60%;
+    }
+    #hiking .filter-btn{
+        font-size: 1.3rem;
+    }
+    /* End hiking section */
+
+    /* Contact section */
+    #contact h3{
+        transform: scale(1.1);
+    }
+    /* End contact section */
+}
+
+/* End media query tablet */
